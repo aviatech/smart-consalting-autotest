@@ -4,4 +4,7 @@ import ru.maslenkin.autotest.smartconsalting.WDriver;
 
 public class BasePage {
     WDriver chromeDriver = WDriver.getInstance();
+
+    public void open() {
+    }
 }

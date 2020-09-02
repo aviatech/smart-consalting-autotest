@@ -4,27 +4,28 @@ import org.openqa.selenium.WebElement;
 
 public class LoginPage extends BasePage {
 
-    public void openPage() {
+    @Override
+    public void open() {
         chromeDriver.get("http://point3.smart-consulting.ru/#/login/");
     }
 
-    public void setLogin() {
-        String loginLocator = "//*[@id='auth-username']";
+    public void setLogin(String login) {
+        String loginLocator = "//input[@id='auth-username']";
         WebElement webElement = chromeDriver.findElementByXPath(loginLocator);
         webElement.clear();
-        webElement.sendKeys("testuser");
+        webElement.sendKeys(login);
     }
 
-    public void setPassword() {
-        String passwordLocator = "//*[@id='auth-password']";
+    public void setPassword(String password) {
+        String passwordLocator = "//input[@id='auth-password']";
         WebElement webElement = chromeDriver.findElementByXPath(passwordLocator);
         webElement.clear();
-        webElement.sendKeys("testuser123");
+        webElement.sendKeys(password);
 
     }
 
     public void pressLoginButton() {
-        String submitButtonLocator = "//*[@type='submi']";
+        String submitButtonLocator = "//button[@type='submit']";
         WebElement webElement = chromeDriver.findElementByXPath(submitButtonLocator);
         webElement.click();
     }

@@ -8,9 +8,9 @@ public class MainTest {
 
     @Test
     public void login() {
-        loginPage.openPage();
-        loginPage.setLogin();
-        loginPage.setPassword();
+        loginPage.open();
+        loginPage.setLogin("testuser");
+        loginPage.setPassword("testuser123");
         loginPage.pressLoginButton();
     }
 

@@ -1,13 +1,13 @@
 package ru.maslenkin.autotest.smartconsalting;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import ru.maslenkin.autotest.smartconsalting.util.MyLogger;
 
 import java.io.File;
 import java.io.IOException;
@@ -16,10 +16,11 @@ import java.util.Date;
 
 
 public class WDriver {
+    private static  Logger logger = LogManager.getLogger();;
     private static WDriver instance;
     static ChromeDriver chromeDriver = null;
     public static WebDriverWait waitElement = null;
-    private static Logger logger = MyLogger.getInstance();
+
 
     public static WDriver getInstance() {
         if (instance == null) {
@@ -37,7 +38,9 @@ public class WDriver {
     }
 
     public WebElement findElementByXPath(String xpath) {
+
         WebElement element = null;
+
         for (int i = 0; i < 5; i++) {
             try {
                 element = waitElement.until(
@@ -65,11 +68,12 @@ public class WDriver {
                 }
             }
         }
+        logger.info(String.format("Поиск элемента по локатору '%s'", xpath));
         return element;
     }
 
     public void get(String url) {
-        logger.debug(String.format("Openpage", url));
+        logger.info(String.format("Открывается страница по адресу '%s'", url));
         chromeDriver.get(url);
     }
 
