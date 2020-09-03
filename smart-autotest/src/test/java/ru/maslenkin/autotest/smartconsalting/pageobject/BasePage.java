@@ -7,4 +7,9 @@ public class BasePage {
 
     public void open() {
     }
+
+    public void close() {
+
+    }
+
 }

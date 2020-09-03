@@ -7,6 +7,12 @@ public class LoginPage extends BasePage {
     @Override
     public void open() {
         chromeDriver.get("http://point3.smart-consulting.ru/#/login/");
+        chromeDriver.fullScreenBrowser();
+    }
+
+    @Override
+    public void close() {
+        chromeDriver.closeBrowser();
     }
 
     public void setLogin(String login) {
