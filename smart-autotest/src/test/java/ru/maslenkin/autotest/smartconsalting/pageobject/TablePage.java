@@ -5,6 +5,11 @@ import org.openqa.selenium.WebElement;
 import java.util.ArrayList;
 
 public class TablePage extends BasePage {
+    public static String cellLocator = "//*[@id='page']/div/div/div[1]/div/div[2]" +
+            "/div/div/div/div[2]/div/div[1]/div[1]/table/tbody/tr[1]/td[%d]/div/div/div";
+    public static String lookPanelInputLocator = "//form[@name='form']/div[1]/div/input";
+    //"//*[@id='page']/div/div/div[2]/div/div/div/div[3]/div[2]/form/div[%d]/div/input";
+
 
     public void clickTestType() {
         String menuItemLocator = "//a[@class='dropdown-toggle']";
@@ -44,14 +49,17 @@ public class TablePage extends BasePage {
         webElement.click();
     }
 
-    public ArrayList<String> getValueNote() {
+    public ArrayList<String> getValueNote(String locator) {
         ArrayList<String> arrayList = new ArrayList<>();
         WebElement webElement;
         for (int i = 1; i <= 2; ++i) {
             webElement = chromeDriver
-                    .findElementByXPath("//*[@id='page']/div/div/div[1]/div/div[2]" +
-                            "/div/div/div/div[2]/div/div[1]/div[1]/table/tbody/tr[1]/td[" + i + "]/div/div/div");
-            arrayList.add(webElement.getText());
+                    .findElementByXPath(String.format(locator, i));
+            if (webElement.getAttribute("value") == null) {
+                arrayList.add(webElement.getText());
+            } else {
+                arrayList.add(webElement.getAttribute("value"));
+            }
         }
         return arrayList;
     }

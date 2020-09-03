@@ -15,7 +15,6 @@ public class MainTest {
     @BeforeSuite
     public void openPage() {
         loginPage.open();
-
     }
 
     @BeforeTest
@@ -37,20 +36,21 @@ public class MainTest {
 
     @Test(description = "positive test", priority = 1)
     public void testNoteS1Positive() {
-        Assert.assertEquals(tablePage.getValueNote().get(0), S1);
+        Assert.assertEquals(tablePage.getValueNote(TablePage.cellLocator).get(0), S1);
     }
 
     @Test(description = "positive test", priority = 2)
     public void testNoteNPositive() {
-        Assert.assertEquals(tablePage.getValueNote().get(1), N);
+        Assert.assertEquals(tablePage.getValueNote(TablePage.cellLocator).get(1), N);
     }
 
-    @Test(priority = 3)
+    @Test(priority = 3, enabled =true)
     public void testNoteLookPanel() {
         tablePage.clickLook();
-        tablePage.closeLookPanel();
+        Assert.assertEquals(tablePage.getValueNote(TablePage.lookPanelInputLocator).get(0), S1);
+        //Assert.assertEquals(tablePage.getValueNote(TablePage.lookPanelInputLocator).get(1), N);
+        //tablePage.closeLookPanel();
 
-        //*[@id="page"]/div/div/div[2]/div/div/div/div[3]/div[2]/form/div[1]/div/input
     }
 
 
@@ -63,11 +63,9 @@ public class MainTest {
 
     @Test(description = "negative test", priority = 5, enabled = false)
     public void testNoteNegative() {
-        Assert.assertEquals(tablePage.getValueNote().get(0), S1);
-        Assert.assertEquals(tablePage.getValueNote().get(1), N);
+        Assert.assertEquals(tablePage.getValueNote(TablePage.cellLocator).get(0), S1);
+        Assert.assertEquals(tablePage.getValueNote(TablePage.cellLocator).get(1), N);
     }
-
-
 
 
 }
