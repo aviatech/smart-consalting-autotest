@@ -14,7 +14,6 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-
 public class WDriver {
     private static Logger logger = LogManager.getLogger();
     private static WDriver instance;
@@ -32,7 +31,6 @@ public class WDriver {
     private WDriver() {
         System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
         ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.addArguments("disable-infobars");
         chromeDriver = new ChromeDriver(chromeOptions);
         waitElement = new WebDriverWait(chromeDriver, 10, 250);
     }
@@ -75,16 +73,10 @@ public class WDriver {
         chromeDriver.get(url);
     }
 
-    /**
-     * Открытие браузера на весь экран
-     */
     public void fullScreenBrowser() {
         chromeDriver.manage().window().maximize();
     }
 
-    /**
-     * Закрытие браузера
-     */
     public void closeBrowser() {
         chromeDriver.close();
     }
