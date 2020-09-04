@@ -5,6 +5,8 @@ import org.testng.annotations.*;
 import ru.maslenkin.autotest.smartconsalting.pageobject.LoginPage;
 import ru.maslenkin.autotest.smartconsalting.pageobject.TablePage;
 
+import java.util.ArrayList;
+
 public class MainTest {
     LoginPage loginPage = new LoginPage();
     TablePage tablePage = new TablePage();
@@ -35,37 +37,32 @@ public class MainTest {
     }
 
     @Test(description = "positive test", priority = 1)
-    public void testNoteS1Positive() {
-        Assert.assertEquals(tablePage.getValueNote(TablePage.cellLocator).get(0), S1);
+    public void testNotePositive() {
+        ArrayList<String> arrayList = tablePage.getValueNote(TablePage.cellLocator);
+        Assert.assertEquals(arrayList.get(0), S1);
+        Assert.assertEquals(arrayList.get(1), N);
     }
 
-    @Test(description = "positive test", priority = 2)
-    public void testNoteNPositive() {
-        Assert.assertEquals(tablePage.getValueNote(TablePage.cellLocator).get(1), N);
-    }
-
-    @Test(priority = 3, enabled =true)
+    @Test(priority = 2, enabled = true)
     public void testNoteLookPanel() {
         tablePage.clickLook();
-        Assert.assertEquals(tablePage.getValueNote(TablePage.lookPanelInputLocator).get(0), S1);
-        //Assert.assertEquals(tablePage.getValueNote(TablePage.lookPanelInputLocator).get(1), N);
-        //tablePage.closeLookPanel();
-
+        ArrayList<String> arrayList = tablePage.getValueNote(TablePage.lookPanelInputLocator);
+        Assert.assertEquals(arrayList.get(0), S1);
+        Assert.assertEquals(arrayList.get(1), S1);
+        tablePage.closeLookPanel();
     }
 
 
-  /*  @AfterTest
+    @AfterTest
     public void delete() {
         tablePage.clickDeleteNote();
         tablePage.clickDeleteButton();
-        tablePage.confirmDelete();
-    }*/
+        tablePage.clickConfirmDelete();
+    }
 
     @Test(description = "negative test", priority = 5, enabled = false)
     public void testNoteNegative() {
         Assert.assertEquals(tablePage.getValueNote(TablePage.cellLocator).get(0), S1);
         Assert.assertEquals(tablePage.getValueNote(TablePage.cellLocator).get(1), N);
     }
-
-
 }

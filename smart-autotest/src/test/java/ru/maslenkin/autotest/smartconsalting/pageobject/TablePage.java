@@ -76,7 +76,7 @@ public class TablePage extends BasePage {
         webElement.click();
     }
 
-    public void confirmDelete() {
+    public void clickConfirmDelete() {
         String buttonOkLocator = "/html/body/div[12]/div/div/div[3]/button[1]";
         WebElement webElement = chromeDriver.findElementByXPath(buttonOkLocator);
         webElement.click();
