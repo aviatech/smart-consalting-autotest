@@ -16,7 +16,7 @@ import java.util.Date;
 
 
 public class WDriver {
-    private static  Logger logger = LogManager.getLogger();;
+    private static Logger logger = LogManager.getLogger();
     private static WDriver instance;
     static ChromeDriver chromeDriver = null;
     public static WebDriverWait waitElement = null;
@@ -38,9 +38,7 @@ public class WDriver {
     }
 
     public WebElement findElementByXPath(String xpath) {
-
         WebElement element = null;
-
         for (int i = 0; i < 5; i++) {
             try {
                 element = waitElement.until(

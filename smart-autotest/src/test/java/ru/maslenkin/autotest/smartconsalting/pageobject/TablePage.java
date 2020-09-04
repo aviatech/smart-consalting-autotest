@@ -7,9 +7,7 @@ import java.util.ArrayList;
 public class TablePage extends BasePage {
     public static String cellLocator = "//*[@id='page']/div/div/div[1]/div/div[2]" +
             "/div/div/div/div[2]/div/div[1]/div[1]/table/tbody/tr[1]/td[%d]/div/div/div";
-    public static String lookPanelInputLocator = "//form[@name='form']/div[1]/div/input";
-    //"//*[@id='page']/div/div/div[2]/div/div/div/div[3]/div[2]/form/div[%d]/div/input";
-
+    public static String lookPanelInputLocator = "//form[@name='form']/div[%d]/div/input";
 
     public void clickTestType() {
         String menuItemLocator = "//a[@class='dropdown-toggle']";
@@ -23,6 +21,7 @@ public class TablePage extends BasePage {
         webElement.click();
     }
 
+    //[contains(text(), 'Данных не найдено')]
     public void clickAdd() {
         String menuAddLocator = "//span[contains(text(),'Добавить')]";
         WebElement webElement = chromeDriver.findElementByXPath(menuAddLocator);
@@ -53,12 +52,11 @@ public class TablePage extends BasePage {
         ArrayList<String> arrayList = new ArrayList<>();
         WebElement webElement;
         for (int i = 1; i <= 2; ++i) {
-            webElement = chromeDriver
-                    .findElementByXPath(String.format(locator, i));
-            if (webElement.getAttribute("value") == null) {
-                arrayList.add(webElement.getText());
-            } else {
+            webElement = chromeDriver.findElementByXPath(String.format(locator, i));
+            if (webElement.getAttribute("value") != null) {
                 arrayList.add(webElement.getAttribute("value"));
+            } else {
+                arrayList.add(webElement.getText());
             }
         }
         return arrayList;
@@ -76,7 +74,7 @@ public class TablePage extends BasePage {
         webElement.click();
     }
 
-    public void clickConfirmDelete() {
+    public void clickConfirm() {
         String buttonOkLocator = "/html/body/div[12]/div/div/div[3]/button[1]";
         WebElement webElement = chromeDriver.findElementByXPath(buttonOkLocator);
         webElement.click();
@@ -92,6 +90,11 @@ public class TablePage extends BasePage {
         String closeLocator = "//*[@id='page']/div/div/div[2]/div/div/div/div[2]/a[1]";
         WebElement webElement = chromeDriver.findElementByXPath(closeLocator);
         webElement.click();
+    }
+
+    public void findNoDataFound() {
+        String noDataFoundLocator = "//td[ contains(text(), 'Данных не найдено')]";
+        WebElement webElement = chromeDriver.findElementByXPath(noDataFoundLocator);
     }
 
 
