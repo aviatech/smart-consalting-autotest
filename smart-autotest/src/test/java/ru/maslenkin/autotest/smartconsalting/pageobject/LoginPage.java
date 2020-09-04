@@ -27,7 +27,6 @@ public class LoginPage extends BasePage {
         WebElement webElement = chromeDriver.findElementByXPath(passwordLocator);
         webElement.clear();
         webElement.sendKeys(password);
-
     }
 
     public void pressLoginButton() {

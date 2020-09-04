@@ -21,7 +21,6 @@ public class TablePage extends BasePage {
         webElement.click();
     }
 
-    //[contains(text(), 'Данных не найдено')]
     public void clickAdd() {
         String menuAddLocator = "//span[contains(text(),'Добавить')]";
         WebElement webElement = chromeDriver.findElementByXPath(menuAddLocator);
