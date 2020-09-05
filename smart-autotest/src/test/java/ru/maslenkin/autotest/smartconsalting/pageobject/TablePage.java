@@ -1,7 +1,5 @@
 package ru.maslenkin.autotest.smartconsalting.pageobject;
-
 import org.openqa.selenium.WebElement;
-
 import java.util.ArrayList;
 
 public class TablePage extends BasePage {

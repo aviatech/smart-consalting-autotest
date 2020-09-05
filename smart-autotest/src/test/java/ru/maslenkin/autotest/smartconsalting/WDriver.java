@@ -63,12 +63,12 @@ public class WDriver {
                 }
             }
         }
-        logger.info(String.format("Поиск элемента по локатору '%s'", xpath));
+        logger.info(String.format("Find element by locator '%s'", xpath));
         return element;
     }
 
     public void get(String url) {
-        logger.info(String.format("Открывается страница по адресу '%s'", url));
+        logger.info(String.format("Open page '%s'", url));
         chromeDriver.get(url);
     }
 
