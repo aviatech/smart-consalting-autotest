@@ -78,7 +78,7 @@ public class TablePage extends BasePage {
         webElement.click();
     }
 
-    //div[@class='ng-isolate-scope grid-cell-actionlink']/div/a
+
     public void clickLook() {
         String buttonLookLocator = "//a[@class='btn btn-simple-icon grid-action-btn']";
         WebElement webElement = chromeDriver.findElementByXPath(buttonLookLocator);
