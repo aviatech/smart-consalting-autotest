@@ -1,7 +1,10 @@
 package ru.maslenkin.autotest.smartconsalting;
 
 import org.testng.Assert;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
 import ru.maslenkin.autotest.smartconsalting.pageobject.LoginPage;
 import ru.maslenkin.autotest.smartconsalting.pageobject.TablePage;
 
