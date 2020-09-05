@@ -20,7 +20,6 @@ public class WDriver {
     static ChromeDriver chromeDriver = null;
     public static WebDriverWait waitElement = null;
 
-
     public static WDriver getInstance() {
         if (instance == null) {
             instance = new WDriver();
