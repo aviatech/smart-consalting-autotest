@@ -46,7 +46,7 @@ public class TablePage extends BasePage {
         webElement.click();
     }
 
-    public ArrayList<String> getValueNote(String locator) {
+    public ArrayList<String> getNoteValue(String locator) {
         ArrayList<String> arrayList = new ArrayList<>();
         WebElement webElement;
         for (int i = 1; i <= 2; ++i) {

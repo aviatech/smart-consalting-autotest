@@ -33,7 +33,7 @@ public class MainTest {
         tablePage.setS1(S1_CORRECT);
         tablePage.setN(N_CORRECT);
         tablePage.clickButtonSave();
-        ArrayList<String> arrayList = tablePage.getValueNote(TablePage.cellLocator);
+        ArrayList<String> arrayList = tablePage.getNoteValue(TablePage.cellLocator);
         Assert.assertEquals(arrayList.get(0), S1_CORRECT);
         Assert.assertEquals(arrayList.get(1), N_CORRECT);
     }
@@ -41,7 +41,7 @@ public class MainTest {
     @Test(priority = 2, enabled = true)
     public void testNoteLookPanel() {
         tablePage.clickLook();
-        ArrayList<String> arrayList = tablePage.getValueNote(TablePage.lookPanelInputLocator);
+        ArrayList<String> arrayList = tablePage.getNoteValue(TablePage.lookPanelInputLocator);
         Assert.assertEquals(arrayList.get(0), S1_CORRECT);
         Assert.assertEquals(arrayList.get(1), N_CORRECT);
     }
@@ -53,8 +53,8 @@ public class MainTest {
         String n1NotCorrect = "asd";
         tablePage.setN(n1NotCorrect);
         tablePage.clickButtonSave();
-        Assert.assertEquals(tablePage.getValueNote(TablePage.lookPanelInputLocator).get(0), S1_CORRECT);
-        Assert.assertEquals(tablePage.getValueNote(TablePage.lookPanelInputLocator).get(1), n1NotCorrect);
+        Assert.assertEquals(tablePage.getNoteValue(TablePage.lookPanelInputLocator).get(0), S1_CORRECT);
+        Assert.assertEquals(tablePage.getNoteValue(TablePage.lookPanelInputLocator).get(1), n1NotCorrect);
         tablePage.closeLookPanel();
         tablePage.clickConfirm();
         tablePage.findNoDataFound();
