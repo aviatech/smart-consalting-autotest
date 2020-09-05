@@ -5,8 +5,7 @@ import org.openqa.selenium.WebElement;
 import java.util.ArrayList;
 
 public class TablePage extends BasePage {
-    public static String cellLocator = "//*[@id='page']/div/div/div[1]/div/div[2]" +
-            "/div/div/div/div[2]/div/div[1]/div[1]/table/tbody/tr[1]/td[%d]/div/div/div";
+    public static String cellLocator = "//tr[@class='grid-row data  odd ng-scope active']/td[%d]";
     public static String lookPanelInputLocator = "//form[@name='form']/div[%d]/div/input";
 
     public void clickTestType() {
@@ -78,12 +77,14 @@ public class TablePage extends BasePage {
         WebElement webElement = chromeDriver.findElementByXPath(buttonOkLocator);
         webElement.click();
     }
+
     //div[@class='ng-isolate-scope grid-cell-actionlink']/div/a
     public void clickLook() {
         String buttonLookLocator = "//a[@class='btn btn-simple-icon grid-action-btn']";
         WebElement webElement = chromeDriver.findElementByXPath(buttonLookLocator);
         webElement.click();
     }
+
     //a[@class='close']
     public void closeLookPanel() {
         String closeLocator = "//div[@class='form-panel-header dt-sidepage-header']/a/i";
