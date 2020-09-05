@@ -85,7 +85,6 @@ public class TablePage extends BasePage {
         webElement.click();
     }
 
-    //a[@class='close']
     public void closeLookPanel() {
         String closeLocator = "//div[@class='form-panel-header dt-sidepage-header']/a/i";
         WebElement webElement = chromeDriver.findElementByXPath(closeLocator);
