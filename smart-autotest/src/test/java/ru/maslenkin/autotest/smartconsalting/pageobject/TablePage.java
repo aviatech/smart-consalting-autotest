@@ -16,13 +16,13 @@ public class TablePage extends BasePage {
     }
 
     public void clickItemAutotest() {
-        String autotestlocator = "//a[contains(text(),'Тестовое-автоматизатор')]";
+        String autotestlocator = "//ul[@class='dropdown-panel-menu dt-scroll-container']/li[2]";
         WebElement webElement = chromeDriver.findElementByXPath(autotestlocator);
         webElement.click();
     }
 
     public void clickAdd() {
-        String menuAddLocator = "//span[contains(text(),'Добавить')]";
+        String menuAddLocator = "//button[@type='button']/span[@class='button-title ng-binding']";
         WebElement webElement = chromeDriver.findElementByXPath(menuAddLocator);
         webElement.click();
     }
@@ -62,13 +62,13 @@ public class TablePage extends BasePage {
     }
 
     public void clickDeleteNote() {
-        String menuDeleteLocator = "//*[@id='page']/div/div/div[1]/div/div[2]/div/div/div/div[2]/div/div[1]/div[1]/table/tbody/tr/td[3]/div/div/div/div/button";
+        String menuDeleteLocator = "//button[@class='btn btn-simple-icon dropdown-toggle']";
         WebElement webElement = chromeDriver.findElementByXPath(menuDeleteLocator);
         webElement.click();
     }
 
     public void clickDeleteButton() {
-        String buttonDeleteLocator = "//*[@id='page']/div/div/div[1]/div/div[2]/div/div/div/div[2]/div/div[1]/div[1]/table/tbody/tr/td[3]/div/div/div/div/ul/li/a";
+        String buttonDeleteLocator = "//ul[@class='dropdown-menu dropdown-panel-fixed']";
         WebElement webElement = chromeDriver.findElementByXPath(buttonDeleteLocator);
         webElement.click();
     }
@@ -78,15 +78,15 @@ public class TablePage extends BasePage {
         WebElement webElement = chromeDriver.findElementByXPath(buttonOkLocator);
         webElement.click();
     }
-
+    //div[@class='ng-isolate-scope grid-cell-actionlink']/div/a
     public void clickLook() {
-        String buttonLookLocator = "//*[@id='page']/div/div/div[1]/div/div[2]/div/div/div/div[2]/div/div[1]/div[1]/table/tbody/tr/td[3]/div/div/div/a";
+        String buttonLookLocator = "//a[@class='btn btn-simple-icon grid-action-btn']";
         WebElement webElement = chromeDriver.findElementByXPath(buttonLookLocator);
         webElement.click();
     }
-
+    //a[@class='close']
     public void closeLookPanel() {
-        String closeLocator = "//*[@id='page']/div/div/div[2]/div/div/div/div[2]/a[1]";
+        String closeLocator = "//div[@class='form-panel-header dt-sidepage-header']/a/i";
         WebElement webElement = chromeDriver.findElementByXPath(closeLocator);
         webElement.click();
     }
