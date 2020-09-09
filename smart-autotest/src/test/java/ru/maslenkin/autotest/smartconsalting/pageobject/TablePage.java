@@ -47,17 +47,17 @@ public class TablePage extends BasePage {
     }
 
     public ArrayList<String> getNoteValue(String locator) {
-        ArrayList<String> arrayList = new ArrayList<>();
+        ArrayList<String> arrayListNote = new ArrayList<>();
         WebElement webElement;
         for (int i = 1; i <= 2; ++i) {
             webElement = chromeDriver.findElementByXPath(String.format(locator, i));
             if (webElement.getAttribute("value") != null) {
-                arrayList.add(webElement.getAttribute("value"));
+                arrayListNote.add(webElement.getAttribute("value"));
             } else {
-                arrayList.add(webElement.getText());
+                arrayListNote.add(webElement.getText());
             }
         }
-        return arrayList;
+        return arrayListNote;
     }
 
     public void clickDeleteNote() {
